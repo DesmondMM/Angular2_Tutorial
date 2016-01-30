@@ -9,6 +9,13 @@ interface Hero{
     selector: 'my-app',
     template: `
         <h1>{{title}}</h1>
+        <h2>My Heroes</h2>
+        <ul class="heroes">
+            <li *ngFor="#hero of heroes">
+                <!-- each hero goes here -->
+                <span class="badge">{{hero.id}}</span> {{hero.name}}
+            </li>
+        </ul>
         <h2>{{hero.name}} details!</h2>
         <div><label>id: </label>{{hero.id}}</div>
         <div>
@@ -18,6 +25,7 @@ interface Hero{
     `
 })
 export class AppComponent {
+    public heroes = HEROES
     public title = 'Tour of Heroes'
     public hero: Hero = {
         id:1,
