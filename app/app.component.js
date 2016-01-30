@@ -27,8 +27,7 @@ System.register(['angular2/core'], function(exports_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>{{title}}</h1><h2>{{hero.name}} details!</h2><div><label>name:' +
-                            '</label> {{hero.name}}</div>'
+                        template: "\n        <h1>{{title}}</h1>\n        <h2>{{hero.name}} details!</h2>\n        <div><label>id: </label>{{hero.id}}</div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
