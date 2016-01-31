@@ -26,15 +26,15 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                 function AppComponent(_heroService) {
                     this._heroService = _heroService;
                     this.title = 'Tour of Heroes';
-                    this.heroes = Hero[];
                 }
-                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 AppComponent.prototype.getHeroes = function () {
-                    this.heroes = this._heroService.getHeroes();
+                    var _this = this;
+                    this._heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.getHeroes();
                 };
+                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
