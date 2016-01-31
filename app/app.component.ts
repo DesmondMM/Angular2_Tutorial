@@ -1,8 +1,6 @@
     import {Component} from 'angular2/core';
-    interface Hero {
-      id: number;
-      name: string;
-    }
+    import {Hero} from './hero'
+    import {HeroDetailComponent} from './hero-detail.component'
     @Component({
       selector: 'my-app',
       template:`
@@ -15,14 +13,7 @@
             <span class="badge">{{hero.id}}</span> {{hero.name}}
           </li>
         </ul>
-        <div *ngIf="selectedHero">
-          <h2>{{selectedHero.name}} details!</h2>
-          <div><label>id: </label>{{selectedHero.id}}</div>
-          <div>
-            <label>name: </label>
-            <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-          </div>
-        </div>
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
       `,
       styles:[`
         .selected {
@@ -71,7 +62,8 @@
           margin-right: .8em;
           border-radius: 4px 0px 0px 4px;
         }
-      `]
+      `],
+      directives: [HeroDetailComponent]
     })
     export class AppComponent {
       public title = 'Tour of Heroes';
@@ -85,7 +77,7 @@
       { "id": 13, "name": "Bombasto" },
       { "id": 14, "name": "Celeritas" },
       { "id": 15, "name": "Magneta" },
-      { "id": 16, "name": "RubberMan" },
+      { "id": 16, "name": "Rubberman" },
       { "id": 17, "name": "Dynama" },
       { "id": 18, "name": "Dr IQ" },
       { "id": 19, "name": "Magma" },
